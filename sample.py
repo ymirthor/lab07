@@ -30,3 +30,28 @@ def test_fizz_buzz():
     assert fizz_buzz(30) == "FizzBuzz"
     assert fizz_buzz(45) == "FizzBuzz"
     assert fizz_buzz(60) == "FizzBuzz"
+
+    # Extensive test
+    high = 1_000_000
+    fizzbuzz = range(0, high + 1, 15)
+    fizz = range(0, high + 1, 3)
+    buzz = range(0, high + 1, 5)
+
+    for i in fizzbuzz:
+        assert fizz_buzz(i) == "FizzBuzz"
+
+    for i in fizz:
+        if i not in fizzbuzz:
+            assert fizz_buzz(i) == "Fizz"
+    
+    for i in buzz:
+        if i not in fizzbuzz:
+            assert fizz_buzz(i) == "Buzz"
+
+    for i in range(101):
+        if i not in fizz:
+            if i not in buzz:
+                assert fizz_buzz(i) == i
+
+    for i in "this is a test":
+        assert fizz_buzz(i) == 0
