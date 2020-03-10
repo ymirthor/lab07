@@ -48,7 +48,7 @@ def test_fizz_buzz():
         if i not in fizzbuzz:
             assert fizz_buzz(i) == "Buzz"
 
-    for i in range(101):
+    for i in range(high + 1):
         if i not in fizz:
             if i not in buzz:
                 assert fizz_buzz(i) == i
