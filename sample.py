@@ -12,13 +12,17 @@ def fizz_buzz(integer):
 def test_fizz_buzz():
     assert fizz_buzz(1) == 1
     assert fizz_buzz(3) == "Fizz"
+    assert fizz_buzz(-3) == "Fizz"
     assert fizz_buzz(5) == "Buzz"
+    assert fizz_buzz(-5) == "Buzz"
     assert fizz_buzz(15) == "FizzBuzz"
-    
+    assert fizz_buzz(-15) == "FizzBuzz"
+    assert fizz_buzz(0) == "FizzBuzz"
+
     assert fizz_buzz("lol") == 0
     assert fizz_buzz(2) == 2
     assert fizz_buzz(7) == 7
-    
+
     assert fizz_buzz(6) == "Fizz"
     assert fizz_buzz(9) == "Fizz"
     assert fizz_buzz(12) == "Fizz"
@@ -39,19 +43,23 @@ def test_fizz_buzz():
 
     for i in fizzbuzz:
         assert fizz_buzz(i) == "FizzBuzz"
+        assert fizz_buzz(-i) == "FizzBuzz"
 
     for i in fizz:
         if i not in fizzbuzz:
             assert fizz_buzz(i) == "Fizz"
+            assert fizz_buzz(-i) == "Fizz"
     
     for i in buzz:
         if i not in fizzbuzz:
             assert fizz_buzz(i) == "Buzz"
+            assert fizz_buzz(-i) == "Buzz"
 
     for i in range(high + 1):
         if i not in fizz:
             if i not in buzz:
                 assert fizz_buzz(i) == i
+                assert fizz_buzz(-i) == -i
 
     for i in "this is a test":
         assert fizz_buzz(i) == 0
